@@ -22,10 +22,13 @@ function App() {
             {pizzas.map((obj) => (
               <PizzaBlock
                 key={obj.title}
-                title={obj.title}
-                price={obj.price}
-                imageUrl={obj.imageUrl}
-                sizes={obj.sizes}
+                {...obj}
+                // spread оператор, выдает в пропсы все внутренние объекты
+                // title={obj.title}
+                // price={obj.price}
+                // imageUrl={obj.imageUrl}
+                // sizes={obj.sizes}
+                // types={obj.types}
               />
             ))}
           </div>
