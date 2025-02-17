@@ -4,12 +4,15 @@ import styles from "./NotFoundBlock.module.scss";
 
 const NotFoundBlock = () => {
   return (
-    <div>
+    <div className={styles.root}>
       <h1>
-        <span className={styles.root}>😞</span>
+        <span>😞</span>
         <br />
         Ничего на найдено
       </h1>
+      <p className={styles.description}>
+        К сожалению такой страницы не существует на нашем сайте.
+      </p>
     </div>
   );
 };
