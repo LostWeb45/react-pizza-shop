@@ -21,7 +21,7 @@ const Home = () => {
       });
   }, []);
   return (
-    <>
+    <div className="container">
       <div className="content__top">
         <Categories />
         <Sort />
@@ -30,9 +30,9 @@ const Home = () => {
       <div className="content__items">
         {isLoading
           ? [...new Array(8)].map((_, i) => <Skeleton key={i} />)
-          : items.map((obj) => <PizzaBlock key={obj.name} {...obj} />)}
+          : items.map((obj) => <PizzaBlock key={obj.title} {...obj} />)}
       </div>
-    </>
+    </div>
   );
 };
 
