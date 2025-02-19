@@ -1,13 +1,13 @@
 import React from "react";
 
-const Sort = () => {
+const Sort = ({ value, onChangeSort }) => {
   const [isVisiblePop, setIsVisiblePop] = React.useState(false);
-  const [selectedSort, setSelectedSort] = React.useState(0);
+  // const [selectedSort, setSelectedSort] = React.useState(0);
   const sortList = ["популярности", "цене", "алфавиту"];
-  const sortname = sortList[selectedSort];
+  const sortname = sortList[value];
 
   const onClickListItem = (i) => {
-    setSelectedSort(i);
+    onChangeSort(i);
     setIsVisiblePop(false);
   };
 
@@ -37,7 +37,7 @@ const Sort = () => {
               <li
                 key={i}
                 onClick={() => onClickListItem(i)}
-                className={selectedSort === i ? "active" : ""}
+                className={value === i ? "active" : ""}
               >
                 {sort}
               </li>
