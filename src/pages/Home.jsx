@@ -4,9 +4,10 @@ import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import PizzaBlock from "../components/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
-// import pizzas from "./assets/pizzas.json";
+import Pagination from "../components/Pagination";
+// import Search from "../components/Search";
 
-const Home = () => {
+const Home = ({ searchValue }) => {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [categoryId, setCategoryId] = React.useState(0);
@@ -21,9 +22,10 @@ const Home = () => {
     const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
     const sortBy = sortType.sortProperty.replace("-", "");
     const category = categoryId > 0 ? `category=${categoryId}` : "";
+    const search = searchValue ? `&search=${searchValue}` : "";
 
     fetch(
-      `https://67b2f30ebc0165def8cf45b6.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}`
+      `https://67b2f30ebc0165def8cf45b6.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}${search}`
     )
       .then((res) => {
         return res.json();
@@ -34,6 +36,18 @@ const Home = () => {
       });
     window.scrollTo(0, 0);
   }, [categoryId, sortType]);
+
+  const pizzas = items
+    // Статичная версия фильтрации
+    // .filter((obj) => {
+    //   if (obj.title.toLowerCase().includes(searchValue.toLowerCase())) {
+    //     return true;
+    //   }
+    //   return false;
+    // })
+    .map((obj) => <PizzaBlock key={obj.title} {...obj} />);
+  const skeletons = [...new Array(8)].map((_, i) => <Skeleton key={i} />);
+
   return (
     <div className="container">
       <div className="content__top">
@@ -44,11 +58,8 @@ const Home = () => {
         <Sort value={sortType} onChangeSort={(index) => setSort(index)} />
       </div>
       <h2 className="content__title">Все пиццы</h2>
-      <div className="content__items">
-        {isLoading
-          ? [...new Array(8)].map((_, i) => <Skeleton key={i} />)
-          : items.map((obj) => <PizzaBlock key={obj.title} {...obj} />)}
-      </div>
+      <div className="content__items">{isLoading ? skeletons : pizzas}</div>
+      <Pagination />
     </div>
   );
 };
