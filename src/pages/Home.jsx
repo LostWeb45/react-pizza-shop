@@ -49,6 +49,7 @@ const Home = () => {
     //   return false;
     // })
     .map((obj) => <PizzaBlock key={obj.title} {...obj} />);
+
   const skeletons = [...new Array(8)].map((_, i) => <Skeleton key={i} />);
 
   return (
