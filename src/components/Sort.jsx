@@ -1,8 +1,12 @@
 import React from "react";
+import { setSort } from "../redux/slices/filterSlice";
+import { useSelector, useDispatch } from "react-redux";
 
-const Sort = ({ value, onChangeSort }) => {
+const Sort = () => {
+  const dispatch = useDispatch();
+  const sort = useSelector((state) => state.filter.sort);
+
   const [isVisiblePop, setIsVisiblePop] = React.useState(false);
-  // const [selectedSort, setSelectedSort] = React.useState(0);
   const sortList = [
     { name: "популярности ↓", sortProperty: "rating" },
     { name: "популярности ↑", sortProperty: "-rating" },
@@ -13,8 +17,8 @@ const Sort = ({ value, onChangeSort }) => {
   ];
   // const sortname = sortList[value].name;
 
-  const onClickListItem = (i) => {
-    onChangeSort(i);
+  const onClickListItem = (obj) => {
+    dispatch(setSort(obj));
     setIsVisiblePop(false);
   };
 
@@ -34,7 +38,7 @@ const Sort = ({ value, onChangeSort }) => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={() => setIsVisiblePop(!isVisiblePop)}>{value.name}</span>
+        <span onClick={() => setIsVisiblePop(!isVisiblePop)}>{sort.name}</span>
       </div>
 
       {isVisiblePop && (
@@ -45,7 +49,7 @@ const Sort = ({ value, onChangeSort }) => {
                 key={i}
                 onClick={() => onClickListItem(obj)}
                 className={
-                  value.sortProperty === obj.sortProperty ? "active" : ""
+                  sort.sortProperty === obj.sortProperty ? "active" : ""
                 }
               >
                 {obj.name}
