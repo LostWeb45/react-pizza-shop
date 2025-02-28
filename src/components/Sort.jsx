@@ -2,19 +2,19 @@ import React from "react";
 import { setSort } from "../redux/slices/filterSlice";
 import { useSelector, useDispatch } from "react-redux";
 
+const sortList = [
+  { name: "популярности ↓", sortProperty: "rating" },
+  { name: "популярности ↑", sortProperty: "-rating" },
+  { name: "цене ↓", sortProperty: "price" },
+  { name: "цене ↑", sortProperty: "-price" },
+  { name: "алфавиту А-Я", sortProperty: "title" },
+  { name: "алфавиту Я-А", sortProperty: "-title" },
+];
 const Sort = () => {
   const dispatch = useDispatch();
   const sort = useSelector((state) => state.filter.sort);
 
   const [isVisiblePop, setIsVisiblePop] = React.useState(false);
-  const sortList = [
-    { name: "популярности ↓", sortProperty: "rating" },
-    { name: "популярности ↑", sortProperty: "-rating" },
-    { name: "цене ↓", sortProperty: "price" },
-    { name: "цене ↑", sortProperty: "-price" },
-    { name: "алфавиту А-Я", sortProperty: "title" },
-    { name: "алфавиту Я-А", sortProperty: "-title" },
-  ];
   // const sortname = sortList[value].name;
 
   const onClickListItem = (obj) => {
