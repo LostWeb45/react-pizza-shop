@@ -9,7 +9,6 @@ import Skeleton from "../components/PizzaBlock/Skeleton";
 import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
 import axios from "axios";
-// import Search from "../components/Search";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -18,7 +17,7 @@ const Home = () => {
   );
 
   const { searchValue } = React.useContext(SearchContext);
-  const [items, setItems] = React.useState([""]);
+  const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
 
   const onClickCategory = (id) => {
@@ -43,6 +42,11 @@ const Home = () => {
       )
       .then((res) => {
         setItems(res.data);
+        console.log(res.data);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setItems([]);
         setIsLoading(false);
       });
 
