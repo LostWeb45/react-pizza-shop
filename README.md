@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# React Pizza 🍕
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**React Pizza** — это интернет-магазин пицц с корзиной, фильтрацией, сортировкой, пагинацией и поиском. Проект разработан с использованием современных технологий и инструментов.
 
-## Available Scripts
+## 🚀 Демо
+Добавить ссылку (если есть)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📦 Установка и запуск
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Клонируйте репозиторий:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   ```bash
+   git clone https://github.com/LostWeb45/react-pizza-shop.git
+   ```
 
-### `npm test`
+2. **Перейдите в директорию проекта:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   cd react-pizza-shop
+   ```
 
-### `npm run build`
+3. **Установите зависимости:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **Запустите проект:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+5. Проект будет доступен по адресу: [http://localhost:3000](http://localhost:3000).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠️ Используемые технологии
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **ReactJS 18** — библиотека для построения пользовательских интерфейсов.
+- **TypeScript** — язык программирования для добавления статической типизации.
+- **Redux Toolkit** — управление состоянием приложения (хранение данных о пиццах).
+- **React Router v6** — навигация между страницами.
+- **Axios + Fetch** — отправка запросов на бэкенд.
+- **React Hooks** — использование хуков для управления состоянием и жизненным циклом компонентов.
+- **Prettier** — автоматическое форматирование кода.
+- **CSS-Modules / SCSS** — стилизация компонентов.
+- **React Content Loader** — скелетоны для улучшения UX при загрузке данных.
+- **React Pagination** — пагинация на главной странице.
+- **Lodash.Debounce** — устранение дребезга при поиске.
+- **Code Splitting, React Loadable** — оптимизация загрузки приложения.
+- **useWhyDidYouUpdate** — отладка рендеринга компонентов.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🗂️ Структура проекта
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+react-pizza/
+├── public/          # Статические файлы
+├── src/             # Исходный код
+│   ├── assets/      # Изображения, шрифты и другие ресурсы
+│   ├── components/  # Компоненты React
+│   ├── hooks/       # Кастомные хуки
+│   ├── pages/       # Страницы приложения
+│   ├── redux/       # Redux Toolkit (слайсы, хранилище)
+│   ├── styles/      # Стили (SCSS)
+│   ├── utils/       # Вспомогательные функции
+│   └── App.js       # Главный компонент приложения
+├── package.json     # Зависимости и скрипты
+└── README.md        # Документация
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🌟 Особенности
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Корзина:** Добавление, удаление и изменение количества пицц.
+- **Фильтрация и сортировка:** Возможность фильтровать и сортировать пиццы по категориям, цене, популярности и алфавиту.
+- **Пагинация:** Постраничная загрузка пицц.
+- **Поиск:** Удобный поиск пицц с использованием debounce.
+- **Скелетоны:** Загрузочные анимации для улучшения UX.
+- **Адаптивная верстка:** Поддержка мобильных устройств.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Разработано для практики с вышепредставленными инструментами.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
