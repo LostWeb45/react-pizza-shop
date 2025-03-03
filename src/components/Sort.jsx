@@ -13,6 +13,7 @@ export const sortList = [
 const Sort = () => {
   const dispatch = useDispatch();
   const sort = useSelector((state) => state.filter.sort);
+  const sortRef = React.useRef();
 
   const [isVisiblePop, setIsVisiblePop] = React.useState(false);
   // const sortname = sortList[value].name;
@@ -21,9 +22,16 @@ const Sort = () => {
     dispatch(setSort(obj));
     setIsVisiblePop(false);
   };
+  React.useEffect(() => {
+    document.body.addEventListener("click", (event) => {
+      if (!event.composedPath().includes(sortRef.current)) {
+        setIsVisiblePop(false);
+      }
+    });
+  }, []);
 
   return (
-    <div className="sort">
+    <div ref={sortRef} className="sort">
       <div className="sort__label">
         <svg
           width="10"
