@@ -1,16 +1,20 @@
-import React, { use } from "react";
+import React from "react";
+import qs from "qs";
+import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { setCategoryId, setCurrentPage } from "../redux/slices/filterSlice";
+import { SearchContext } from "../App";
+
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import PizzaBlock from "../components/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Pagination from "../components/Pagination";
-import { SearchContext } from "../App";
-import axios from "axios";
 
 const Home = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { categoryId, sort, currentPage } = useSelector(
     (state) => state.filter
@@ -42,7 +46,6 @@ const Home = () => {
       )
       .then((res) => {
         setItems(res.data);
-        console.log(res.data);
         setIsLoading(false);
       })
       .catch(() => {
@@ -51,6 +54,16 @@ const Home = () => {
       });
 
     window.scrollTo(0, 0);
+  }, [categoryId, sort.sortProperty, currentPage, searchValue]);
+
+  React.useEffect(() => {
+    const queryString = qs.stringify({
+      sortProperty: sort.sortProperty,
+      categoryId,
+      currentPage,
+    });
+
+    navigate(`?${queryString}`);
   }, [categoryId, sort.sortProperty, currentPage, searchValue]);
 
   const pizzas = items
