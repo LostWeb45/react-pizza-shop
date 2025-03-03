@@ -22,12 +22,17 @@ const Sort = () => {
     dispatch(setSort(obj));
     setIsVisiblePop(false);
   };
+
   React.useEffect(() => {
-    document.body.addEventListener("click", (event) => {
+    const handleClickOutside = (event) => {
       if (!event.composedPath().includes(sortRef.current)) {
         setIsVisiblePop(false);
       }
-    });
+    };
+
+    document.body.addEventListener("click", handleClickOutside);
+
+    return () => document.body.removeEventListener("click", handleClickOutside);
   }, []);
 
   return (
