@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addItem, removeItem } from "../redux/slices/cartSlice";
+import { addItem, minusItem, removeItem } from "../redux/slices/cartSlice";
 
 const typeNames = ["тонкое", "традиционное"];
 
@@ -15,7 +15,7 @@ const CartItem = ({ id, title, price, type, count, imageUrl }) => {
     );
   };
   const onClickMinus = () => {
-    dispatch(removeItem(id));
+    dispatch(minusItem(id));
   };
 
   return (
