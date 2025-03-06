@@ -18,6 +18,12 @@ const CartItem = ({ id, title, price, type, count, imageUrl }) => {
     dispatch(minusItem(id));
   };
 
+  const onClickRemove = () => {
+    if (window.confirm("Вы уверены, что хотите удалить позицию?")) {
+      dispatch(removeItem(id));
+    }
+  };
+
   return (
     <div className="cart__item">
       <div className="cart__item-img">
@@ -77,7 +83,10 @@ const CartItem = ({ id, title, price, type, count, imageUrl }) => {
         <b>{price * count}₽</b>
       </div>
       <div className="cart__item-remove">
-        <div className="button button--outline button--circle">
+        <div
+          onClick={onClickRemove}
+          className="button button--outline button--circle"
+        >
           <svg
             width="10"
             height="10"
