@@ -59,12 +59,19 @@ const Home = () => {
     //     setItems([]);
     //     setIsLoading(false);
     //   });
-    const res = await axios.get(
-      `https:67b2f30ebc0165def8cf45b6.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`
-    );
 
-    setItems(res.data);
-    setIsLoading(false);
+    try {
+      const res = await axios.get(
+        `https:67b2f30ebc0165def8cf45b6.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`
+      );
+      setItems(res.data);
+    } catch (error) {
+      setItems([]);
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+
     window.scrollTo(0, 0);
   };
 
