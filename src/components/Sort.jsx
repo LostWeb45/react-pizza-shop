@@ -1,5 +1,5 @@
 import React from "react";
-import { setSort } from "../redux/slices/filterSlice";
+import { selectSort, setSort } from "../redux/slices/filterSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 export const sortList = [
@@ -12,7 +12,7 @@ export const sortList = [
 ];
 const Sort = () => {
   const dispatch = useDispatch();
-  const sort = useSelector((state) => state.filter.sort);
+  const sort = useSelector(selectSort);
   const sortRef = React.useRef();
 
   const [isVisiblePop, setIsVisiblePop] = React.useState(false);
