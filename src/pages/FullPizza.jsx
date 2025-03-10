@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const FullPizza = () => {
-  const [pizza, setPizza] = React.useState();
+  const [pizza, setPizza] = React.useState({});
   const { id } = useParams();
 
   React.useEffect(() => {
@@ -20,10 +20,14 @@ const FullPizza = () => {
     fetchPizza();
   }, []);
 
+  if (!pizza) {
+    return <h2>Секунду...</h2>;
+  }
+
   return (
     <div className="container">
-      {/* <img src={pizza.imageUrl} /> */}
-      <h2>Название пиццы</h2>
+      <img src={pizza.imageUrl} />
+      <h2>{pizza.title}</h2>
       <p>Описание состава пиццы</p>
     </div>
   );
