@@ -85,7 +85,7 @@ const Home = () => {
       const params = qs.parse(window.location.search.substring(1));
 
       const sort = sortList.find(
-        (obj) => obj.sortProperty == params.sortProperty
+        (obj) => obj.sortProperty === params.sortProperty
       );
 
       dispatch(
@@ -126,7 +126,7 @@ const Home = () => {
         <Sort />
       </div>
       <h2 className="content__title">Все пиццы</h2>
-      {status == "error" ? (
+      {status === "error" ? (
         <div className="content__error-info">
           <h2>
             Ничего не найдено <span>😕</span>
@@ -135,7 +135,7 @@ const Home = () => {
         </div>
       ) : (
         <div className="content__items">
-          {status == "loading" ? skeletons : pizzas}
+          {status === "loading" ? skeletons : pizzas}
         </div>
       )}
 
