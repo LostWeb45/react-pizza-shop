@@ -38,6 +38,7 @@ const pizzaSlice = createSlice({
       })
       .addCase(fetchPizzas.rejected, (state) => {
         state.status = "error";
+        console.error("Ошибка при получении пицц");
         state.items = [];
       });
   },
