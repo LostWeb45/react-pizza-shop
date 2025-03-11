@@ -107,7 +107,9 @@ const Home = () => {
     isSearch.current = false;
   }, [categoryId, sort.sortProperty, currentPage, searchValue]);
 
-  const pizzas = items.map((obj) => <PizzaBlock key={obj.title} {...obj} />);
+  const pizzas = Array.isArray(items)
+    ? items.map((obj) => <PizzaBlock key={obj.title} {...obj} />)
+    : [];
   // Статичная версия фильтрации на фронте
   // .filter((obj) => {
   //   if (obj.title.toLowerCase().includes(searchValue.toLowerCase())) {
