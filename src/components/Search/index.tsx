@@ -16,7 +16,7 @@ const Search: React.FC = () => {
     []
   );
 
-  const onChangeIput = (event: any) => {
+  const onChangeIput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
     updateSearchValue(event.target.value);
   };
