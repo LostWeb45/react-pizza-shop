@@ -1,3 +1,4 @@
+import { useWhyDidYouUpdate } from "ahooks";
 import React from "react";
 
 type CategoriesProps = {
@@ -20,6 +21,7 @@ const Categories: React.FC<CategoriesProps> = ({ value, onClickCategory }) => {
   // const onClickCategory = (index) => {
   //   setActiveCategory(index);
   // };
+  useWhyDidYouUpdate("Categories", { value, onClickCategory });
 
   return (
     <div className="categories">
