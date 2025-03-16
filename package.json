@@ -9,7 +9,6 @@
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-    "ahooks": "^3.8.4",
     "axios": "^1.8.1",
     "clsx": "^2.1.1",
     "cra-template": "1.2.0",
