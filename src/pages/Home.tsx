@@ -28,9 +28,9 @@ const Home: React.FC = () => {
   );
   const { items, status } = useSelector((state: any) => state.pizza);
 
-  const onClickCategory = (idx: number) => {
+  const onClickCategory = React.useCallback((idx: number) => {
     dispatch(setCategoryId(idx));
-  };
+  }, []);
 
   const onChangePage = (value: number) => {
     dispatch(setCurrentPage(value));
@@ -127,7 +127,7 @@ const Home: React.FC = () => {
     <div className="container">
       <div className="content__top">
         <Categories value={categoryId} onClickCategory={onClickCategory} />
-        <Sort />
+        <Sort value={sort} />
       </div>
       <h2 className="content__title">Все пиццы</h2>
       {status === "error" ? (

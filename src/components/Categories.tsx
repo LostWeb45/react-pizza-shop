@@ -1,4 +1,4 @@
-import { useWhyDidYouUpdate } from "ahooks";
+// import { useWhyDidYouUpdate } from "ahooks";
 import React from "react";
 
 type CategoriesProps = {
@@ -15,29 +15,31 @@ const catigories = [
   "Закрытые",
 ];
 
-const Categories: React.FC<CategoriesProps> = ({ value, onClickCategory }) => {
-  // const [activeCategory, setActiveCategory] = React.useState(0);
+const Categories: React.FC<CategoriesProps> = React.memo(
+  ({ value, onClickCategory }) => {
+    // const [activeCategory, setActiveCategory] = React.useState(0);
 
-  // const onClickCategory = (index) => {
-  //   setActiveCategory(index);
-  // };
-  useWhyDidYouUpdate("Categories", { value, onClickCategory });
+    // const onClickCategory = (index) => {
+    //   setActiveCategory(index);
+    // };
+    // useWhyDidYouUpdate("Categories", { value, onClickCategory });
 
-  return (
-    <div className="categories">
-      <ul>
-        {catigories.map((category, i) => (
-          <li
-            key={category}
-            onClick={() => onClickCategory(i)}
-            className={value === i ? "active" : ""}
-          >
-            {category}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+    return (
+      <div className="categories">
+        <ul>
+          {catigories.map((category, i) => (
+            <li
+              key={category}
+              onClick={() => onClickCategory(i)}
+              className={value === i ? "active" : ""}
+            >
+              {category}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+);
 
 export default Categories;
