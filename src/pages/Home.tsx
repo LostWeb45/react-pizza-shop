@@ -7,7 +7,7 @@ import {
   setCategoryId,
   setCurrentPage,
   setFilters,
-} from "../redux/slices/filterSlice";
+} from "../redux/slices/filter/slice";
 
 import Categories from "../components/Categories";
 import Sort, { sortList } from "../components/Sort";
