@@ -7,7 +7,9 @@ import { Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import NotFound from "./pages/NotFound";
 
-const Cart = React.lazy(() => import("./pages/Cart"));
+const Cart = React.lazy(
+  () => import(/*webpackChunkName: "Cart"*/ "./pages/Cart")
+);
 // Элемент подключается, только когда он будет отрисовываться
 
 function App() {
