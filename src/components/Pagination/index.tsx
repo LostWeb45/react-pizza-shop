@@ -8,7 +8,7 @@ type PaginationPorops = {
   onChangePage: (page: number) => void;
 };
 
-const Pagination: React.FC<PaginationPorops> = ({
+export const Pagination: React.FC<PaginationPorops> = ({
   currentPage,
   onChangePage,
 }) => {
@@ -25,5 +25,3 @@ const Pagination: React.FC<PaginationPorops> = ({
     />
   );
 };
-
-export default Pagination;
