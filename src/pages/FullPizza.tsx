@@ -33,14 +33,17 @@ const FullPizza: React.FC = () => {
 
   return (
     <div className="container">
-      <img src={pizza.imageUrl} />
-      <h2>{pizza.title}</h2>
-      <p>Очень вкусная пицца</p>
-      <Link to={"/"}>
-        <button className="button button--outline button--add">
-          <span>Назад</span>
-        </button>
-      </Link>
+      <div className="container--fullpizza">
+        <img src={pizza.imageUrl} alt={pizza.title} className="pizza-image" />
+        <h2>{pizza.title}</h2>
+        <p>Очень вкусная пицца 🍕</p>
+        <span className="pizza-price">{pizza.price} ₽</span>
+        <Link to={"/"}>
+          <button className="button button--outline button--add">
+            <span>Назад</span>
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

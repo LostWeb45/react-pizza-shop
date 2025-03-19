@@ -116,7 +116,29 @@ body {
     }
   }
 }
+.container--fullpizza {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
 
+  .pizza-image {
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .pizza-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-right: 30px;
+  }
+
+  .button {
+    margin-top: 10px;
+  }
+}
 .cart {
   &__top {
     display: flex;
